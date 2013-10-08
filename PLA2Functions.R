@@ -42,12 +42,9 @@ calcSign <- function(X,wts){
 pla2.eval <- function(X,w,y){
 	preds 	<- calcSign(X,w)
 	temp 		<- preds != y
-	x.temp 	<- X[temp,]
-	if(! is.null(nrow(x.temp))){
-		temp 		<- sample(1:nrow(x.temp),1)
-		x.temp 	<- x.temp[temp,]
-	}
-	w 		<- w + x.temp*y[temp]
+	z <- (1:nrow(X))[temp]
+	temp 		<- sample(z,1)
+	w 		<- w + X[temp,]*y[temp]
 	return(w)
 }
 	
