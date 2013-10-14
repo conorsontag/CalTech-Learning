@@ -69,3 +69,5 @@ w.vec + x.temp*outcomes[temp]
 dim(X)
 class(X)
 class(w.vec)
+
+# Change 1
