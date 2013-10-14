@@ -43,7 +43,11 @@ pla2.eval <- function(X,w,y){
 	preds 	<- calcSign(X,w)
 	temp 		<- preds != y
 	z <- (1:nrow(X))[temp]
-	temp 		<- sample(z,1)
+	if(len(z) > 1){
+		temp 		<- sample(z,1)
+	}
+	else
+		temp <- z
 	w 		<- w + X[temp,]*y[temp]
 	return(w)
 }
